@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const useGame = (): any => {
   const [gameData, setGameData] = useState<any>({

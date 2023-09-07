@@ -1,13 +1,13 @@
 import React from "react";
-import { InventoryProps, Item } from "../types/types";
+import { GameOnlyProp, Item } from "../types/types";
 
-export const Inventory: React.FC<InventoryProps> = ({ game, updateGame }) => {
+export const Inventory: React.FC<GameOnlyProp> = ({ game, updateGame }) => {
   const handleItemClick = (item: Item) => {
     updateGame("commentary", item.description);
   };
 
   return (
-    <div className="absolute right-0 h-screen w-[10rem] bg-gray-700 text-white">
+    <div className="absolute right-0 h-screen w-[10vw] bg-gray-700 text-white z-20">
       {game.inventory.map((item: Item, i: number) => (
         <div
           key={`inventory=${i}`}
