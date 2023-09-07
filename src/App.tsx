@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { useGame } from "./hooks/useGame";
+import { Landing } from "./components/Landing";
+import { Inventory } from "./components/Inventory";
+import { Commentary } from "./components/Commentary";
 
 function App() {
+  const { gameData: game, updateGame } = useGame();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (game != undefined) {
+      setIsLoading(false);
+    }
+    console.log(game)
+  }, [game]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!isLoading && (
+        <div className="App min-w-screen min-h-screen max-h-screen max-w-screen bg-purple-950">
+          <Landing game={game} updateGame={updateGame} />
+          <Inventory game={game} updateGame={updateGame} />
+          <Commentary game={game} updateGame={updateGame} />
+        </div>
+      )}
+    </>
   );
 }
 
