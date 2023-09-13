@@ -6,7 +6,7 @@ export const Landing: React.FC<GameOnlyProp> = ({
   updateGame: updateGameData,
 }) => {
   const handleNewGame = () => {
-    updateGameData("location", "Front Gate");
+    updateGameData("location", 'Front Gate');
   };
 
   return (

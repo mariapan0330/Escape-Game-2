@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { objectsData } from "../objectsData";
 
 export const useGame = (): any => {
   const [gameData, setGameData] = useState<any>({
@@ -6,9 +7,7 @@ export const useGame = (): any => {
     solved: [],
     location: "New Game",
     commentary: "...",
-    inventory: [
-      {}
-    ],
+    inventory: [], // inventory will contain item keys only, which are compared against the objectData.ts
   });
 
   const updateGame = (key: string, value: any) => {
@@ -18,5 +17,5 @@ export const useGame = (): any => {
     }));
   };
 
-  return { gameData, updateGame };
+  return { gameData, updateGame, objectsData };
 };

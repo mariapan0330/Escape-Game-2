@@ -1,7 +1,7 @@
 import React from "react";
 import { GameOnlyProp } from "../types/types";
 
-export const Commentary: React.FC<GameOnlyProp> = ({ game }) => {
+export const Commentary: React.FC<GameOnlyProp> = ({ game, objectsData }) => {
   const { commentary } = game;
 
   return (
